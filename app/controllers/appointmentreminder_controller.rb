@@ -22,7 +22,7 @@ class AppointmentreminderController < ApplicationController
     :to => params['number'],
     :from => CALLER_ID)
     puts message.sid
-    @redirect_to = BASE_URL
+    redirect_to '/'
   end
 
   # Use the Twilio REST API to initiate an outgoing call
