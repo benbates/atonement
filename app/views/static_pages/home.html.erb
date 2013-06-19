@@ -1,2 +1,11 @@
-<h1>Project Atonement</h1>
-<p>Sin today, pay for it tomorrow</p>
+<div class="center hero-unit">
+  <h1>Project Atonement</h1>
+  <p>Sin today, pay for it tomorrow</p>
+
+  <h2 style="color: #ff0000"><%= params['msg'] %></h2>
+  <h3>Enter your phone number to receive an automated reminder</h3>
+  <form action="sendtext" method="post">
+    <input type="text" name="number" />
+    <input type="submit" value="Text me!">
+  </form>
+</div>

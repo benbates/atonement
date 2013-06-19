@@ -1,6 +1,8 @@
 Atonement::Application.routes.draw do
   root to: 'static_pages#home'
 
+  match '/makecall', to: 'appointmentreminder#makecall'
+  match '/sendtext', to: 'appointmentreminder#sendtext'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
