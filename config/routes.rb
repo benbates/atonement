@@ -4,10 +4,18 @@ Atonement::Application.routes.draw do
   match '/makecall', to: 'appointmentreminder#makecall'
   match '/sendtext', to: 'appointmentreminder#sendtext'
   
-  match '/auth/runkeeper' => 'sessions#connect'
-  match '/auth/runkeeper/callback' => 'sessions#create'
+  resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signup', to: 'users#new'
   match '/signin' => 'sessions#new', :as => :signin
   match '/signout' => 'sessions#destroy', :as => :signout
+  
+  match '/help', to: 'static_pages#help'
+  match '/about', to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
+  
+  match '/auth/runkeeper' => 'sessions#rk_auth'
+  match '/auth/runkeeper/callback' => 'sessions#create'
   match '/auth/failure' => 'sessions#failure'
   # The priority is based upon order of creation:
   # first created -> highest priority.
