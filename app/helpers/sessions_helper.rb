@@ -34,7 +34,13 @@ module SessionsHelper
     redirect_to(session[:return_to] || default)
     session.delete(:return_to)
   end
-
+  
+  def set_access_token(access_token)
+    puts "ACCESS: #{access_token}"
+    current_user.rk_token = access_token
+    current_user.save!
+  end
+  
   def signed_in_user
     unless signed_in?
       store_location

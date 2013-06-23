@@ -1,16 +1,13 @@
 class SessionsController < ApplicationController
   
   def rk_auth
-
-    puts params[:code]
     access_token = HealthGraph.access_token(params[:code])
-    puts access_token
-    user = HealthGraph::User.new(access_token)
+    set_access_token(access_token)
+    rk_user = HealthGraph::User.new(access_token)
 
-    reset_session
-    profile = user.profile
-    fitness_activities = user.fitness_activities.items
-    sleep = user.sleep.items
+    profile = rk_user.profile
+    fitness_activities = rk_user.fitness_activities.items
+    sleep = rk_user.sleep.items
     profile.body.each do |key, value|
       puts "#{key} => #{value}"
     end
@@ -18,7 +15,7 @@ class SessionsController < ApplicationController
     fitness_activities.each do |fa|
       puts fa
     end
-    redirect_to     root_url, :notice => 'Signed in!'
+    redirect_to root_url, :notice => 'Successfully Connected RunKeeper!'
   end
   
   def new

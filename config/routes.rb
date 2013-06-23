@@ -15,9 +15,10 @@ Atonement::Application.routes.draw do
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   
-  match '/auth/runkeeper' => 'sessions#rk_auth'
-  match '/auth/runkeeper/callback' => 'sessions#create'
+  match '/auth/runkeeper' => 'sessions#connect'
+  match '/auth/runkeeper/callback' => 'sessions#rk_auth'
   match '/auth/failure' => 'sessions#failure'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
