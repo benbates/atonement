@@ -26,6 +26,11 @@ module SessionsHelper
     cookies.delete(:remember_token)
   end
 
+  def fitness_activities
+    rk_user = HealthGraph::User.new(current_user.rk_token)
+    fitness_activities = rk_user.fitness_activities.items
+  end
+        
   def store_location
     session[:return_to] = request.fullpath
   end
@@ -37,6 +42,7 @@ module SessionsHelper
   
   def set_access_token(access_token)
     puts "ACCESS: #{access_token}"
+    puts "RT: #{current_user.remember_token}"
     current_user.rk_token = access_token
     current_user.save!
   end
