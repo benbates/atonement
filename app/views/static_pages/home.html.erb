@@ -6,7 +6,7 @@
   <h3>Enter your phone number to receive an automated reminder</h3>
   <form action="sendtext" method="post">
     <input type="text" name="number" />
-    <input class="btn" type="submit" value="Text me!">
+    <input class="btn btn-large btn-success btn-primary"  type="submit" value="Text me!">
   </form>
   <% if signed_in? %>
     <% if current_user.rk_token %>
