@@ -8,11 +8,4 @@
     <input type="text" name="number" />
     <input class="btn btn-large btn-success btn-primary"  type="submit" value="Text me!">
   </form>
-  <% if signed_in? %>
-    <% if current_user.rk_token %>
-    <% else %>
-      <%= link_to "Connect to RunKeeper", '/auth/runkeeper', class: "btn btn-large btn-primary" %>    
-    <% end %>
-  <% end %>
-  <p></p>
 </div>

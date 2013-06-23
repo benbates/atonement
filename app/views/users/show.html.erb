@@ -12,12 +12,14 @@
           </tr>
           </thead>
           <tbody>
+        <% if current_user.rk_token %>
         <% fitness_activities.each do |fa| %>
         <tr>
           <td><%= fa.type %></td>
           <td><%= fa.start_time%></td>
           <td><%= Time.at(fa.duration).utc.strftime("%H:%M:%S") %></td>
         </tr>
+        <% end %>
         <% end %>
         </tbody>
         </table>
