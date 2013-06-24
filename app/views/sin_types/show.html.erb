@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @sin_type.name %>
+</p>
+
+<p>
+  <b>Calories:</b>
+  <%= @sin_type.calories %>
+</p>
+
+
+<%= link_to 'Edit', edit_sin_type_path(@sin_type) %> |
+<%= link_to 'Back', sin_types_path %>

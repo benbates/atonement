@@ -1,0 +1,2 @@
+module SinTypesHelper
+end

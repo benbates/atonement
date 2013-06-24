@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Calories:</b>
+  <%= @sin.calories %>
+</p>
+
+<p>
+  <b>Reminder time:</b>
+  <%= @sin.reminder_time %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @sin.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_sin_path(@sin) %> |
+<%= link_to 'Back', sins_path %>
