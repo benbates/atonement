@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20130624181702) do
     t.integer  "user_id"
     t.string   "activity_type"
     t.datetime "activity_date"
-    t.time     "duration"
+    t.integer  "duration"
     t.float    "calories"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false

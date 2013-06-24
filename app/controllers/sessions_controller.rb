@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
       act.activity_type = activity.type      
       act.calories = activity.total_calories
       act.uri = activity.uri
-      act.duration = activity.duration
+      act.duration = activity.duration.to_i
 #      act.distance = activity.total_distance      
       act.save
     end
