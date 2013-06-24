@@ -2,16 +2,16 @@
 require "twilio-ruby"
 
 class AppointmentreminderController < ApplicationController
-
+  
   # your Twilio authentication credentials
-  ACCOUNT_SID = 'ACc156e5a27225c56498c4e3ab32881e18'
-  ACCOUNT_TOKEN = 'fee242eaf33f49c6e6327d8fc18d26da'
+  ACCOUNT_SID = ENV["ACCOUNT_SID"]
+  ACCOUNT_TOKEN = ENV["ACCOUNT_TOKEN"]
 
   # base URL of this application
-  BASE_URL = "http://atonement-app.herokuapp.com"
+  BASE_URL = ENV["BASE_URL"]
 
   # Outgoing Caller ID you have previously validated with Twilio
-  CALLER_ID = '16179630726'
+  CALLER_ID = ENV["CALLER_ID"]
 
   def index
   end
