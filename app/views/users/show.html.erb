@@ -22,7 +22,7 @@
           <% @user.activities.each do |fa| %>
             <tr>
               <td><%= fa.activity_type %></td>
-              <td><%= Time.at(fa.activity_date).utc.strftime("%a, %b %d, %Y %H:%M:%S") %></td>
+              <td><%= fa.activity_date %></td>
               <td><%= Time.at(fa.duration).utc.strftime("%H:%M:%S") %></td>
               <td><%= fa.calories %></td>
             </tr>
