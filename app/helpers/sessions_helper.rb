@@ -25,7 +25,7 @@ module SessionsHelper
     current_user = nil
     cookies.delete(:remember_token)
   end
-
+        
   def store_location
     session[:return_to] = request.fullpath
   end
@@ -36,7 +36,6 @@ module SessionsHelper
   end
   
   def set_access_token(access_token)
-    puts "ACCESS: #{access_token}"
     current_user.rk_token = access_token
     current_user.save!
   end

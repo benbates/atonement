@@ -1,0 +1,29 @@
+<%= form_for(@sin) do |f| %>
+  <% if @sin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sin.errors.count, "error") %> prohibited this sin from being saved:</h2>
+
+      <ul>
+      <% @sin.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :calories %><br />
+    <%= f.number_field :calories %>
+  </div>
+  <div class="field">
+    <%= f.label :reminder_time %><br />
+    <%= f.datetime_select :reminder_time %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

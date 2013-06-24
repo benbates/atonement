@@ -5,7 +5,7 @@ gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '2.1'
 gem 'twilio-ruby', '3.9.0'
 gem 'bcrypt-ruby'
-gem 'health_graph'
+gem 'health_graph', :git => 'git://github.com/benbates/health_graph.git'
 gem 'figaro'
 
 group :development, :test do

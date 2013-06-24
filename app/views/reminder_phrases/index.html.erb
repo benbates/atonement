@@ -1,0 +1,23 @@
+<h1>Listing reminder_phrases</h1>
+
+<table>
+  <tr>
+    <th>Phrase</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @reminder_phrases.each do |reminder_phrase| %>
+  <tr>
+    <td><%= reminder_phrase.phrase %></td>
+    <td><%= link_to 'Show', reminder_phrase %></td>
+    <td><%= link_to 'Edit', edit_reminder_phrase_path(reminder_phrase) %></td>
+    <td><%= link_to 'Destroy', reminder_phrase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Reminder phrase', new_reminder_phrase_path %>

@@ -1,10 +1,35 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span12">
     <section>
-      <h1>
-        <%= @user.name %>
-      </h1>
+      <h1><%= @user.name %></h1>
+      <% if @user == current_user && current_user.rk_token %>
+        <%= link_to "Sync Activities", '/getactivities', class: "btn btn-large btn-primary" %>
+      <% elsif @user == current_user %>
+        <%= link_to "Connect to RunKeeper", '/auth/runkeeper', class: "btn btn-large btn-primary" %>
+      <% end %>
+      <% if @user.rk_token %>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Activity Type</th>
+            <th>Start Time</th>
+            <th>Duration</th>
+            <th>Calories</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.activities.each do |fa| %>
+            <tr>
+              <td><%= fa.activity_type %></td>
+              <td><%= fa.activity_date %></td>
+              <td><%= Time.at(fa.duration).utc.strftime("%H:%M:%S") %></td>
+              <td><%= fa.calories %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% end %>
     </section>
   </aside>
 </div>

@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/benbates/health_graph.git
+  revision: e9bb27f7e157cbd5f8996ca175c04cce9683e992
+  specs:
+    health_graph (0.6.0)
+      faraday (>= 0.7.4)
+      faraday_middleware (>= 0.7.8)
+      hashie (>= 1.2)
+      health_graph
+      oauth2 (>= 0.5.2)
+      webmock (>= 1.7.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -66,13 +78,6 @@ GEM
       bundler (~> 1.0)
       rails (>= 3, < 5)
     hashie (2.0.5)
-    health_graph (0.6.0)
-      faraday (>= 0.7.4)
-      faraday_middleware (>= 0.7.8)
-      hashie (>= 1.2)
-      health_graph
-      oauth2 (>= 0.5.2)
-      webmock (>= 1.7.6)
     hike (1.2.3)
     httpauth (0.2.0)
     i18n (0.6.1)
@@ -188,7 +193,7 @@ DEPENDENCIES
   capybara (= 1.1.2)
   coffee-rails (= 3.2.2)
   figaro
-  health_graph
+  health_graph!
   jquery-rails (= 2.0.2)
   pg (= 0.12.2)
   rails (= 3.2.13)

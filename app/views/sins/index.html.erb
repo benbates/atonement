@@ -1,0 +1,27 @@
+<h1>Listing sins</h1>
+
+<table>
+  <tr>
+    <th>Calories</th>
+    <th>Reminder time</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sins.each do |sin| %>
+  <tr>
+    <td><%= sin.calories %></td>
+    <td><%= sin.reminder_time %></td>
+    <td><%= sin.user_id %></td>
+    <td><%= link_to 'Show', sin %></td>
+    <td><%= link_to 'Edit', edit_sin_path(sin) %></td>
+    <td><%= link_to 'Destroy', sin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sin', new_sin_path %>
