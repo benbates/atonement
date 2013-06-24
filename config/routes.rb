@@ -18,6 +18,7 @@ Atonement::Application.routes.draw do
   match '/auth/runkeeper' => 'sessions#connect'
   match '/auth/runkeeper/callback' => 'sessions#rk_auth'
   match '/auth/failure' => 'sessions#failure'
+  match '/getactivities' => 'sessions#get_fitness_activities' 
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

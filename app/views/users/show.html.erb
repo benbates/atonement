@@ -1,28 +1,33 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span12">
     <section>
       <h1><%= @user.name %></h1>
+      <% if @user == current_user %>
+        <%= link_to "Sync Activities", '/getactivities', class: "btn btn-large btn-primary" %>
+      <% end %>
+      <% if @user.rk_token %>
       <table class="table table-hover">
         <thead>
           <tr>
             <th>Activity Type</th>
             <th>Start Time</th>
             <th>Duration</th>
+            <th>Calories</th>
           </tr>
-          </thead>
-          <tbody>
-        <% if current_user.rk_token %>
-        <% fitness_activities.each do |fa| %>
-        <tr>
-          <td><%= fa.type %></td>
-          <td><%= fa.start_time%></td>
-          <td><%= Time.at(fa.duration).utc.strftime("%H:%M:%S") %></td>
-        </tr>
-        <% end %>
-        <% end %>
+        </thead>
+        <tbody>
+          <% @user.activities.each do |fa| %>
+            <tr>
+              <td><%= fa.activity_type %></td>
+              <td><%= Time.at(fa.activity_date).utc.strftime("%a, %b %d, %Y %H:%M:%S") %></td>
+              <td><%= Time.at(fa.duration).utc.strftime("%H:%M:%S") %></td>
+              <td><%= fa.calories %></td>
+            </tr>
+          <% end %>
         </tbody>
-        </table>
+      </table>
+      <% end %>
     </section>
   </aside>
 </div>
