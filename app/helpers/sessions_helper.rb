@@ -36,8 +36,6 @@ module SessionsHelper
   end
   
   def set_access_token(access_token)
-    puts "ACCESS: #{access_token}"
-    puts "RT: #{current_user.remember_token}"
     current_user.rk_token = access_token
     current_user.save!
   end
