@@ -29,6 +29,8 @@ class SessionsController < ApplicationController
 #      act.distance = fa.total_distance      
       act.save
     end
+    current_user.last_sync = Date.today
+    current_user.save
     redirect_to current_user
   end
   

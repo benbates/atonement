@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.last_sync = Date.today
     if @user.save
       sign_in @user
       flash[:success] = "Welcome aboard!"
