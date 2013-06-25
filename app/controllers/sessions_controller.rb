@@ -9,21 +9,20 @@ class SessionsController < ApplicationController
   def get_fitness_activities
     rk_user = HealthGraph::User.new(current_user.rk_token)
     fitness_activities = rk_user.fitness_activities.items
+    puts fitness_activities
     fitness_activities.each do |fa|
       uri = fa.uri
-      activity = rk_user.fitness_activity_summary uri
-      puts "Activity: #{activity.type}"
-      if Activity.find_by_uri(uri)
+      if Activity.find_by_uri(uri).user_id == current_user.id
         act = Activity.find_by_uri(uri)
       else
         act = current_user.activities.create()
       end
-      act.activity_date = activity.start_time
-      act.activity_type = activity.type      
-      act.calories = activity.total_calories
-      act.uri = activity.uri
-      act.duration = activity.duration.to_i
-#      act.distance = activity.total_distance      
+      act.activity_date = fa.start_time
+      act.activity_type = fa.type      
+      act.calories = fa.total_calories.to_i
+      act.uri = fa.uri
+      act.duration = fa.duration.to_i
+#      act.distance = fa.total_distance      
       act.save
     end
     redirect_to current_user
