@@ -1,12 +1,7 @@
 Atonement::Application.routes.draw do
   resources :sins
-
-
   resources :reminder_phrases
-
-
   resources :sin_types
-
 
   root to: 'static_pages#home'
 
