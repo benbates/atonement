@@ -1,13 +1,50 @@
 <div class="center hero-unit">
   <h1>Project Atonement</h1>
   <p>Sin today, pay for it tomorrow</p>
+ </div>
 
-  <h2 style="color: #ff0000"><%= params['msg'] %></h2>
-  <h3>Enter your phone number to receive an automated reminder</h3>
-  <form action="sendtext" method="post">
-    <input type="text" class="input-medium bfh-phone" data-country="US" name="number" placeholder="Phone Number"/> <br/>
-    <input type="text" class="input-medium" data-provide="typeahead" data-source="<%= sin_type_names %>" placeholder="Atonement">
-    <input type="text" class="input-medium" placeholder="Quantity"> <br/>
-    <input class="btn btn-large btn-primary"  type="submit" value="Text me!">
-  </form>
-</div>
+  <center><h2 style="color: #ff0000"><%= params['msg'] %> Enter Your Sin</h2></center>
+
+
+
+	  <form class="form-horizontal" id="sinform" action="sendtext" method="post">
+	  	 <div class="control-group">
+	       <label class="control-label"> Phone # </label>
+	         <div class="controls">
+	           <input type="text" class="input-medium bfh-phone" data-country="US" name="number" placeholder="555-555-5555"/>
+	         </div>
+	     </div>
+
+	     <div class="control-group">
+	        <label class="control-label" >Sin</label>
+	          <div class="controls">
+	            <input type="text" class="input-medium" data-provide="typeahead" data-source="<%= sin_type_names %>" placeholder="Beer">
+	    	  </div>
+	  	</div>
+	    
+	     <div class="control-group">
+	        <label class="control-label" >Quantity</label>
+	          <div class="controls">
+	            <input type="text" class="input-medium" placeholder="1">
+				</div>
+				  	
+				    </div>
+
+	     <div class="control-group">
+	        <label class="control-label" >Date</label>
+	          <div class="controls">
+	            <input type="text" class="input-medium" placeholder="Today">
+				</div>
+				  	
+				    </div>
+
+		<div class="control-group">
+	        <label class="control-label" >Time</label>
+	          <div class="controls">
+	            <input type="text" class="input-medium" placeholder="9:00am"> <br/> <br/>
+	            <button class="btn btn-large btn-primary"  type="submit">Save</button>
+
+			  </div>
+				  	
+	    	</div>    				 	  
+	  	</form>
