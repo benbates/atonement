@@ -12,13 +12,9 @@ class SessionsController < ApplicationController
     puts fitness_activities
     fitness_activities.each do |fa|
       uri = fa.uri
-      if Activity.find_by_uri(uri)
-        if Activity.find_by_uri(uri).user_id == current_user.id
-          act = Activity.find_by_uri(uri)
-        else 
-          act = current_user.activities.create()
-        end
-      else
+      if Activity.where('uri = ? AND user_id = ?', uri, current_user.id).exists?
+          act = Activity.first(:conditions => ['uri = ? AND user_id = ?', uri, current_user.id])
+      else 
         act = current_user.activities.create()
       end
       act.activity_date = fa.start_time
