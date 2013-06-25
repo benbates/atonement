@@ -5,7 +5,9 @@
   <h2 style="color: #ff0000"><%= params['msg'] %></h2>
   <h3>Enter your phone number to receive an automated reminder</h3>
   <form action="sendtext" method="post">
-    <input type="text" class="input-medium bfh-phone" data-country="US" name="number" /> <br/>
+    <input type="text" class="input-medium bfh-phone" data-country="US" name="number" placeholder="Phone Number"/> <br/>
+    <input type="text" class="input-medium" data-provide="typeahead" data-source="<%= sin_type_names %>" placeholder="Atonement">
+    <input type="text" class="input-medium" placeholder="Quantity"> <br/>
     <input class="btn btn-large btn-primary"  type="submit" value="Text me!">
   </form>
 </div>
