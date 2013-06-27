@@ -52,7 +52,7 @@ class SinsController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @sin.errors, status: :unprocessable_entity }
       end
-    end
+#   end
   end
 
   # PUT /sins/1
