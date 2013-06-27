@@ -91,7 +91,8 @@ class SinsController < ApplicationController
     sin.phone = params['phone']
     sin.quantity = params['quantity'].to_i
     sin.date = Date.strptime(params['date'], "%m/%d/%y")
-    sin.sin_type = SinType.where(name: params['sin'])
+    sintype = SinType.where(name: params['sin']).first;
+    sin.sin_type_id = sintype.id
 
     # add 
     if(current_user)
