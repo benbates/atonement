@@ -43,16 +43,16 @@ class SinsController < ApplicationController
   # POST /sins.json
   def create
     @sin = Sin.new(params[:sin])
-    # respond_to do |format|
+    
+    respond_to do |format|
       if @sin.save
-#         flash[:success] = "Binge successfully banked!"
-        format.html { redirect_to @sin, notice: 'Sin was successfully created.' }
+        format.html { redirect_to @sin, notice: 'Binge was successfully banked!' }
         format.json { render json: @sin, status: :created, location: @sin }
       else
         format.html { render action: "new" }
         format.json { render json: @sin.errors, status: :unprocessable_entity }
       end
-#   end
+   end
   end
 
   # PUT /sins/1
@@ -62,7 +62,7 @@ class SinsController < ApplicationController
 
     respond_to do |format|
       if @sin.update_attributes(params[:sin])
-        format.html { redirect_to @sin, notice: 'Sin was successfully updated.' }
+        format.html { redirect_to @sin, notice: 'Binge was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
