@@ -46,8 +46,9 @@ class SinsController < ApplicationController
 
     respond_to do |format|
       if @sin.save
-        format.html { redirect_to @sin, notice: 'Sin was successfully created.' }
-        format.json { render json: @sin, status: :created, location: @sin }
+         flash[:success] = "Binge successfully banked!"
+      #  format.html { redirect_to @sin, notice: 'Sin was successfully created.' }
+      #  format.json { render json: @sin, status: :created, location: @sin }
       else
         format.html { render action: "new" }
         format.json { render json: @sin.errors, status: :unprocessable_entity }
