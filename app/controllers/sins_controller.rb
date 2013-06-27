@@ -101,9 +101,9 @@ class SinsController < ApplicationController
       current_user.save
     end
 
-    # phoneNum = preg_replace("/[^0-9]/","",'604-619-5135');
-    # preg_replace("/[^0-9]/","",'604-619-5135');
-    # redirect_to '/sendtext/' + params['phone']
+    num = params['phone']
+    num = num.gsub(/[^0-9]/, "")
+    redirect_to '/sendtext/' + num
 
   end
 
