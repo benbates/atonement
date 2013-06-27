@@ -1,4 +1,7 @@
 Atonement::Application.routes.draw do
+
+  ActionController::Routing::SEPARATORS =  %w( / ; , ? )
+  
   resources :sins
   resources :reminder_phrases
   resources :sin_types
