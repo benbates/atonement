@@ -6,7 +6,8 @@ Atonement::Application.routes.draw do
   root to: 'static_pages#home'
 
   match '/makecall', to: 'appointmentreminder#makecall'
-  match '/sendtext', to: 'appointmentreminder#sendtext'
+  #match '/sendtext', to: 'appointmentreminder#sendtext'
+  match '/sendtext/:number', to: 'appointmentreminder#sendtext'
 
   match '/newSin', to: 'sins#newSin'
 
