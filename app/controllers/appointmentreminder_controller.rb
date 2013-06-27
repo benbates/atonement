@@ -17,12 +17,14 @@ class AppointmentreminderController < ApplicationController
   end
   
   def sendtext
+
     client = Twilio::REST::Client.new(ACCOUNT_SID, ACCOUNT_TOKEN)
     message = client.account.sms.messages.create(:body => URI.unescape(params['message']),
     :to => params['number'],
     :from => CALLER_ID)
     puts message.sid
-    redirect_to '/'
+    redirect_to :action => '.', 'msg' => 'Binge sucessfully banked.'
+    return
   end
 
   # Use the Twilio REST API to initiate an outgoing call
