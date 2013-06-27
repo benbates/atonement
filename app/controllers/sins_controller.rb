@@ -102,9 +102,9 @@ class SinsController < ApplicationController
     end
 
     # Get the message
-    num = params['phone']
-    num = num.gsub(/[^0-9]/, "")
-    redirect_to '/sendtext/' + num + '/' + CGI.escape(sintype.phrase)
+    # num = params['phone']
+    # num = num.gsub(/[^0-9]/, "")
+    # redirect_to '/sendtext/' + num + '/' + CGI.escape(sintype.phrase)
 
   end
 
