@@ -1,3 +1,5 @@
+require 'date'
+
 class SinsController < ApplicationController
   # GET /sins
   # GET /sins.json
@@ -80,4 +82,28 @@ class SinsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def newSin
+    
+    # Create a new sin
+    sin = Sin.new
+    sin.reminder_time = Date.strptime(params['remindertime'], "%m/%d/%y")
+    sin.phone = params['phone']
+    sin.quantity = params['quantity'].to_i
+    sin.date = Date.strptime(params['date'], "%m/%d/%y")
+    sin.sin_type = SinType.where(name: params['sin'])
+
+    # add 
+    if(current_user)
+      sin.user_id = current_user.id
+      current_user.sins.push(sin)
+      current_user.save
+    end
+
+    redirect_to '/'
+
+  end
+
+
+
 end

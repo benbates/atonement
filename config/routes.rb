@@ -8,6 +8,8 @@ Atonement::Application.routes.draw do
   match '/makecall', to: 'appointmentreminder#makecall'
   match '/sendtext', to: 'appointmentreminder#sendtext'
 
+  match '/newSin', to: 'sins#newSin'
+
   resources :users  
   resources :sessions, only: [:new, :create, :destroy]
 

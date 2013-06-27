@@ -3,35 +3,39 @@
   <p>Sin today, pay for it tomorrow</p>
 </div>
 <center><h2 style="color: #ff0000"><%= params['msg'] %> Enter Your Sin</h2></center>
-<form class="form-horizontal" id="sinform" action="sendtext" method="post">
+<form class="form-horizontal" id="sinform" action="newSin" method="post">
   <div class="control-group">
     <label class="control-label"> Phone # </label>
     <div class="controls">
-      <input type="text" class="input-medium bfh-phone" data-country="US" name="number" placeholder="555-555-5555"/>
+      <input type="text" class="input-medium bfh-phone" data-country="US" name="phone" placeholder="555-555-5555"/>
     </div>
 	</div>
 	<div class="control-group">
 	  <label class="control-label" >Sin</label>
 	  <div class="controls">
-	    <input type="text" class="input-medium" data-provide="typeahead" data-source="<%= sin_type_names %>" placeholder="Beer">
+	    <select name="sin" class="input-medium" > 
+        <%= SinType.all.each do |sintype| %>
+          <option value="<%= sintype.name %>"><%= sintype.name %></option>
+        <% end %>
+      </select>
     </div>
   </div>
   <div class="control-group">
     <label class="control-label" >Quantity</label>
     <div class="controls">
-      <input type="text" class="input-medium" placeholder="1">
+      <input type="text" class="input-medium" placeholder="1" name="quantity" >
     </div>
   </div>
   <div class="control-group">
     <label class="control-label" >Date</label>
     <div class="controls">
-      <input type="text" class="input-medium" placeholder="Today">
+      <input type="text" class="input-medium" placeholder="Today" name="date" >
     </div>
   </div>
   <div class="control-group">
     <label class="control-label" >Time</label>
     <div class="controls">
-      <input type="text" class="input-medium" placeholder="9:00am"> <br/> <br/>
+      <input type="text" class="input-medium" placeholder="9:00am" name="remindertime"> <br/> <br/>
     </div>  
   </div>      
   <div class="center"><button class="btn btn-large btn-primary"  type="submit">Save</button></div>  				 	  
