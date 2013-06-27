@@ -43,16 +43,16 @@ class SinsController < ApplicationController
   # POST /sins.json
   def create
     @sin = Sin.new(params[:sin])
-    
-    respond_to do |format|
-      if @sin.save
-        format.html { redirect_to @sin, notice: 'Binge was successfully banked!' }
-        format.json { render json: @sin, status: :created, location: @sin }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @sin.errors, status: :unprocessable_entity }
-      end
-   end
+    flash[:success] = "Binge successfully banked!"
+ #   respond_to do |format|
+ #     if @sin.save
+ #       format.html { redirect_to @sin, notice: 'Binge was successfully banked!' }
+ #       format.json { render json: @sin, status: :created, location: @sin }
+ #     else
+ #       format.html { render action: "new" }
+ #       format.json { render json: @sin.errors, status: :unprocessable_entity }
+ #     end
+ #  end
   end
 
   # PUT /sins/1
