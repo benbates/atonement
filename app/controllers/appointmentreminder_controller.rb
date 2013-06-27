@@ -18,7 +18,7 @@ class AppointmentreminderController < ApplicationController
   
   def sendtext
     client = Twilio::REST::Client.new(ACCOUNT_SID, ACCOUNT_TOKEN)
-    message = client.account.sms.messages.create(:body => "Get up and workout! with RunKeeper! http://www.runkeeper.com/deeplink",
+    message = client.account.sms.messages.create(:body => URI.unescape(params['message']),
     :to => params['number'],
     :from => CALLER_ID)
     puts message.sid

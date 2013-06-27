@@ -101,9 +101,10 @@ class SinsController < ApplicationController
       current_user.save
     end
 
+    # Get the message
     num = params['phone']
     num = num.gsub(/[^0-9]/, "")
-    redirect_to '/sendtext/' + num
+    redirect_to '/sendtext/' + num + '/' + URI.escape(sintype.phrase)
 
   end
 
