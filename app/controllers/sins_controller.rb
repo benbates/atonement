@@ -87,10 +87,10 @@ class SinsController < ApplicationController
     
     # Create a new sin
     sin = Sin.new
-    sin.reminder_time = Date.strptime(params['remindertime'], "%m/%d/%y")
+    sin.reminder_time = Date.today + params['remindertime'].to_i
     sin.phone = params['phone']
     sin.quantity = params['quantity'].to_i
-    sin.date = Date.strptime(params['date'], "%m/%d/%y")
+    sin.date = Date.today
     sintype = SinType.where(name: params['sin']).first;
     sin.sin_type_id = sintype.id
 
@@ -101,7 +101,9 @@ class SinsController < ApplicationController
       current_user.save
     end
 
-    redirect_to '/'
+    # phoneNum = preg_replace("/[^0-9]/","",'604-619-5135');
+    # preg_replace("/[^0-9]/","",'604-619-5135');
+    # redirect_to '/sendtext/' + params['phone']
 
   end
 
