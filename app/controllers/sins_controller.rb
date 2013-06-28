@@ -105,10 +105,11 @@ class SinsController < ApplicationController
     num = params['phone']
     num = num.gsub(/[^0-9]/, "")
     redirect_to '/sendtext/' + num + '/' + URI.escape(sintype.phrase)
-    flash[:success] = "Binge successfully banked!"
 
+    if @sin.save
+      flash[:success] = "Binge successfully banked!"
+    else
+      render 'new'
+    end
   end
-
-
-
 end
