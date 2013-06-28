@@ -22,7 +22,7 @@ class AppointmentreminderController < ApplicationController
     :to => params['number'],
     :from => CALLER_ID)
     puts message.sid
-    redirect_to '/'
+    redirect_to '/', :flash => { :success => "Binge successfully banked!" }
   end
 
   # Use the Twilio REST API to initiate an outgoing call

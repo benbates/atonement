@@ -104,6 +104,6 @@ class SinsController < ApplicationController
     # Get the message
     num = params['phone']
     num = num.gsub(/[^0-9]/, "")
-    redirect_to '/sendtext/' + num + '/' + URI.escape(sintype.phrase), :flash => { :success => "Bing successfully banked!" }
+    redirect_to '/sendtext/' + num + '/' + URI.escape(sintype.phrase)
   end
 end
