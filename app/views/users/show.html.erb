@@ -21,7 +21,7 @@ end
 <div class="row">
   <aside class="span12">
     <section>
-      <h1><%= @user.name + ' ' + totalCaloriesBurned.to_s%></h1>
+      <h1><%= @user.name + ': ' + totalCaloriesBurned.to_s + " Calories Burned"  %></h1>
       <% if @user == current_user && current_user.rk_token %>
         <%= link_to "Sync Activities", '/getactivities', class: "btn btn-large btn-primary" %>
       <% elsif @user == current_user %>
