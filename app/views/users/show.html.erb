@@ -56,7 +56,7 @@ end
             else
               calorieRatio = totalCaloriesBurned.to_f / sinCalories.to_f * 100.0
               if(calorieRatio > 0)
-                percentage = calorieRatio.to_s + '%'
+                percentage = calorieRatio.floor.to_s + '%'
               end 
             end
 
