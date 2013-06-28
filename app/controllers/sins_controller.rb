@@ -27,7 +27,7 @@ class SinsController < ApplicationController
   # GET /sins/new.json
   def new
     @sin = Sin.new
-
+    flash[:success] = "Binge successfully banked!"
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @sin }
