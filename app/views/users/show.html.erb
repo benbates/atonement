@@ -1,4 +1,18 @@
-<% provide(:title, @user.name) %>
+<% 
+
+provide(:title, @user.name) 
+
+activities = @user.activities.clone
+activities.sort_by{|e| e[:activity_date]}
+totalCaloriesBurned = 0
+activities.each do |activity| 
+  if(activity.activity_date > @user.sins.first)
+    totalCaloriesBurned += activity.calories
+  end
+end
+
+%>
+
 <div class="row">
   <aside class="span12">
     <section>
@@ -20,10 +34,10 @@
         <tbody>
           <% @user.sins.each do |sin| %>
             <tr>
-              <td><%= sintype = SinType.find(sin.sin_type_id);
+              <td><%= sintype = SinType.find(sin.sin_type_id)
                       sintype.name %></td>
               <td><%= sin.date %></td>
-              <td><%= '100%' %></td>
+              <td><%= totalCaloriesBurned %></td>
             </tr>
           <% end %>
         </tbody>
