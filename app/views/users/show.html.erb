@@ -46,7 +46,7 @@ end
             sinCalories = sintype.calories * sin.quantity 
 
             # Get the percentage
-            percentage = '0%';
+            percentage = '0%'
 
             if(totalCaloriesBurned - sinCalories > 0)
               percentage ='100%'
@@ -57,15 +57,14 @@ end
               end 
             end
 
-            totalCaloriesBurned -= sinCalories;
-
             %>
 
             <tr>
               <td><%= sintype.name %></td>
               <td><%= sin.date %></td>
               <td><%= sinCalories %></td>
-              <td><%= totalCaloriesBurned.to_s + ' ' + percentage.to_s + ' ' + sinCalories.to_s%></td>
+              <td><%= totalCaloriesBurned.to_s + ' ' + percentage.to_s 
+              totalCaloriesBurned -= sinCalories %></td>
             </tr>
           <% end %>
         </tbody>
