@@ -1,4 +1,20 @@
-<% provide(:title, @user.name) %>
+<% 
+
+provide(:title, @user.name) 
+
+activities = @user.activities.clone
+activities.sort_by{|e| e[:activity_date]}
+
+totalCaloriesBurned = 0
+
+activities.each do |activity| 
+  if(activity.activity_date > @user.sins.first.date)
+    totalCaloriesBurned += activity.calories
+  end
+end
+
+%>
+
 <div class="row">
   <aside class="span12">
     <section>
@@ -14,16 +30,42 @@
           <tr>
             <th>Binge Type</th>
             <th>Date</th>
+            <th>Calories Consumed</th>
             <th>Percent complete</th>
           </tr>
         </thead>
         <tbody>
           <% @user.sins.each do |sin| %>
+
+            <%
+
+            # Get the sin type
+            sintype = SinType.find(sin.sin_type_id)
+
+            # Get the calorie count of this sin
+            sinCalories = sintype.calories * sin.quantity 
+
+            # Get the percentage
+            percentage = '0%';
+
+            if(totalCaloriesBurned - caloriesBurnedThisActivity > 0)
+              percentage ='100%'
+            else
+              calorieRatio = totalCaloriesBurned / caloriesBurnedThisActivity * 100
+              if(calorieRatio > 0)
+                percentage.floor + '%'
+              end 
+            end
+
+            totalCaloriesBurned -= caloriesBurnedThisActivity;
+
+            %>
+
             <tr>
-              <td><%= sintype = SinType.find(sin.sin_type_id);
-                      sintype.name %></td>
+              <td><%= sintype.name %></td>
               <td><%= sin.date %></td>
-              <td><%= '100%' %></td>
+              <td><%= sinCalories %></td>
+              <td><%= percentage %></td>
             </tr>
           <% end %>
         </tbody>
