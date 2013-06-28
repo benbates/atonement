@@ -48,6 +48,8 @@ end
             # Get the percentage
             percentage = '0%';
 
+            calorieRatio = 0;
+
             if(totalCaloriesBurned - sinCalories > 0)
               percentage ='100%'
             else
@@ -65,7 +67,7 @@ end
               <td><%= sintype.name %></td>
               <td><%= sin.date %></td>
               <td><%= sinCalories %></td>
-              <td><%= percentage %></td>
+              <td><%= calorieRatio %></td>
             </tr>
           <% end %>
         </tbody>
