@@ -93,7 +93,6 @@ class SinsController < ApplicationController
     sin.date = Date.today
     sintype = SinType.where(name: params['sin']).first;
     sin.sin_type_id = sintype.id
-    flash[:success] = "Binge successfully banked!"
 
     # add 
     if(current_user)
@@ -106,6 +105,7 @@ class SinsController < ApplicationController
     num = params['phone']
     num = num.gsub(/[^0-9]/, "")
     redirect_to '/sendtext/' + num + '/' + URI.escape(sintype.phrase)
+    flash[:success] = "Binge successfully banked!"
 
   end
 
