@@ -48,16 +48,16 @@ end
             # Get the percentage
             percentage = '0%';
 
-            if(totalCaloriesBurned - caloriesBurnedThisActivity > 0)
+            if(totalCaloriesBurned - sinCalories > 0)
               percentage ='100%'
             else
-              calorieRatio = totalCaloriesBurned / caloriesBurnedThisActivity * 100
+              calorieRatio = totalCaloriesBurned / sinCalories * 100
               if(calorieRatio > 0)
                 percentage = calorieRatio.floor + '%'
               end 
             end
 
-            totalCaloriesBurned -= caloriesBurnedThisActivity;
+            totalCaloriesBurned -= sinCalories;
 
             %>
 
