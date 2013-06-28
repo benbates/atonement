@@ -45,6 +45,8 @@ end
             # Get the sin type
             sintype = SinType.find(sin.sin_type_id)
 
+            calorieRatio = 0;
+
             # Get the calorie count of this sin
             sinCalories = sintype.calories * sin.quantity 
 
@@ -69,7 +71,7 @@ end
               <td><%= sintype.name %></td>
               <td><%= sin.date %></td>
               <td><%= sinCalories %></td>
-              <td><%= percentage %></td>
+              <td><%= calorieRatio %></td>
             </tr>
           <% end %>
         </tbody>
