@@ -21,7 +21,7 @@ end
 <div class="row">
   <aside class="span12">
     <section>
-      <h1><%= @user.name %></h1>
+      <h1><%= @user.name + ' ' + totalCaloriesBurned.to_s%></h1>
       <% if @user == current_user && current_user.rk_token %>
         <%= link_to "Sync Activities", '/getactivities', class: "btn btn-large btn-primary" %>
       <% elsif @user == current_user %>
@@ -55,6 +55,7 @@ end
               percentage ='100%'
             else
               calorieRatio = totalCaloriesBurned / sinCalories * 100
+              totalCaloriesBurned.to_s + ' ' + percentage.to_s + "            "
               if(calorieRatio > 0)
                 percentage = calorieRatio.floor + '%'
               end 
@@ -68,7 +69,7 @@ end
               <td><%= sintype.name %></td>
               <td><%= sin.date %></td>
               <td><%= sinCalories %></td>
-              <td><%= totalCaloriesBurned.to_s + ' ' + percentage.to_s %></td>
+              <td><%= percentage %></td>
             </tr>
           <% end %>
         </tbody>
