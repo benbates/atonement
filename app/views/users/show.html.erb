@@ -38,7 +38,6 @@ end
           <% @user.sins.each do |sin| %>
 
             <%
-            
 
             # Get the sin type
             sintype = SinType.find(sin.sin_type_id)
@@ -54,7 +53,7 @@ end
             else
               calorieRatio = totalCaloriesBurned / caloriesBurnedThisActivity * 100
               if(calorieRatio > 0)
-                percentage.floor + '%'
+                percentage = calorieRatio.floor + '%'
               end 
             end
 
