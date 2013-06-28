@@ -1,6 +1,10 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
-<ul class="users">
-  <%= render @users %>
-</ul>
+<table class="table table-hover">
+  <tr>
+    <th>User</th>
+    <th>Delete?</th>
+  </tr>
+      <%= render @users %>
+</table>
