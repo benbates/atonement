@@ -31,32 +31,41 @@ end
             <th>Binge Type</th>
             <th>Date</th>
             <th>Calories Consumed</th>
-            <th>Calories Burned</th>
             <th>Percent complete</th>
           </tr>
         </thead>
         <tbody>
           <% @user.sins.each do |sin| %>
+
+            <%
+
+            # Get the sin type
+            sintype = SinType.find(sin.sin_type_id)
+
+            # Get the calorie count of this sin
+            sinCalories = sintype.calories * sin.quantity 
+
+            # Get the percentage
+            percentage = '0%';
+
+            if(totalCaloriesBurned - caloriesBurnedThisActivity > 0)
+              percentage ='100%'
+            else
+              calorieRatio = totalCaloriesBurned / caloriesBurnedThisActivity * 100
+              if(calorieRatio > 0)
+                percentage.floor + '%'
+              end 
+            end
+
+            totalCaloriesBurned -= caloriesBurnedThisActivity;
+
+            %>
+
             <tr>
-              <td><%= sintype = SinType.find(sin.sin_type_id)
-                      sintype.name %></td>
+              <td><%= sintype.name %></td>
               <td><%= sin.date %></td>
-              <td><%= caloriesBurnedThisActivity = sintype.calories * sin.quantity 
-                      caloriesBurnedThisActivity %></td>
-              <td><%= if(totalCaloriesBurned - caloriesBurnedThisActivity > 0)
-                        '100%'
-                      else
-                        percentage = totalCaloriesBurned / caloriesBurnedThisActivity * 100
-                        if(percentage > 0)
-                          percentage.floor + '%'
-                        else
-                          '0%'
-                        end 
-                      end
-
-                      totalCaloriesBurned -= caloriesBurnedThisActivity;
-
-              totalCaloriesBurned %></td>
+              <td><%= sinCalories %></td>
+              <td><%= percentage %></td>
             </tr>
           <% end %>
         </tbody>
