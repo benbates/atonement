@@ -93,6 +93,7 @@ class SinsController < ApplicationController
     sin.date = Date.today
     sintype = SinType.where(name: params['sin']).first;
     sin.sin_type_id = sintype.id
+    flash[:success] = "Binge successfully banked!"
 
     # add 
     if(current_user)
