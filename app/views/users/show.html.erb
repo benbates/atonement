@@ -6,7 +6,7 @@ activities = @user.activities.clone
 activities.sort_by{|e| e[:activity_date]}
 totalCaloriesBurned = 0
 activities.each do |activity| 
-  if(activity.activity_date > @user.sins.first)
+  if(activity.activity_date > @user.sins.first.date)
     totalCaloriesBurned += activity.calories
   end
 end
