@@ -65,7 +65,7 @@ end
               <td><%= sintype.name %></td>
               <td><%= sin.date %></td>
               <td><%= sinCalories %></td>
-              <td><%= totalCaloriesBurned + ' ' + percentage + ' ' + sinCalories%></td>
+              <td><%= totalCaloriesBurned.to_s + ' ' + percentage.to_s + ' ' + sinCalories.to_s%></td>
             </tr>
           <% end %>
         </tbody>
