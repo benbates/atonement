@@ -55,7 +55,7 @@ end
               percentage ='100%'
             else
               calorieRatio = totalCaloriesBurned / sinCalories * 100
-              totalCaloriesBurned.to_s + ' ' + percentage.to_s + "            "
+              puts totalCaloriesBurned + " " + sinCalories
               if(calorieRatio > 0)
                 percentage = calorieRatio.floor + '%'
               end 
