@@ -56,8 +56,7 @@ end
             if(totalCaloriesBurned - sinCalories > 0)
               percentage ='100%'
             else
-              calorieRatio = totalCaloriesBurned / sinCalories * 100
-              puts totalCaloriesBurned + " " + sinCalories
+              calorieRatio = totalCaloriesBurned.to_f / sinCalories.to_f * 100.0
               if(calorieRatio > 0)
                 percentage = calorieRatio.floor + '%'
               end 
@@ -71,7 +70,7 @@ end
               <td><%= sintype.name %></td>
               <td><%= sin.date %></td>
               <td><%= sinCalories %></td>
-              <td><%= calorieRatio %></td>
+              <td><%= percentage %></td>
             </tr>
           <% end %>
         </tbody>
