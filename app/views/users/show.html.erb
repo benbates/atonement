@@ -50,13 +50,16 @@ end
 
             # Get the percentage
             percentage = '0%'
+            colorClass = '.red'
 
             if(totalCaloriesBurned - sinCalories > 0)
               percentage ='100%'
+              colorClass = '.green'
             else
               calorieRatio = totalCaloriesBurned.to_f / sinCalories.to_f * 100.0
               if(calorieRatio > 0)
                 percentage = calorieRatio.floor.to_s + '%'
+                colorClass = '.yellow'
               end 
             end
 
@@ -64,7 +67,7 @@ end
 
             %>
 
-            <tr>
+            <tr class = "<%= colorClass %>">
               <td><%= sintype.name %></td>
               <td><%= sin.date %></td>
               <td><%= sinCalories %></td>
